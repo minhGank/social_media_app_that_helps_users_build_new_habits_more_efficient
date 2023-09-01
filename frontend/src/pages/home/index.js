@@ -21,7 +21,6 @@ export default function Home({ setVisable, posts, loading }) {
       <Header page="home" />
       <LeftHome user={user} />
       <div className="home_middle" ref={middle}>
-        {/* <Stories /> */}
         {/* <CreatePost setVisable={setVisable} user={user} /> */}
         <div className="posts">
           {posts.map((post) => (
@@ -29,7 +28,6 @@ export default function Home({ setVisable, posts, loading }) {
           ))}
         </div>
       </div>
-      {/* <RightHome user={user} /> */}
     </div>
   );
 }

@@ -13,8 +13,8 @@ export default function DisplayHabit({ habit, i, user }) {
       <div
         className="circle_icon hover1"
         onClick={() => {
-          addHabit(habit._id, user.token);
-          console.log(habit._id, user.token);
+          addHabit(habit.name, habit.description, habit._id, user.token);
+          console.log(habit.name, habit.description, habit._id, user.token);
         }}
       >
         <img

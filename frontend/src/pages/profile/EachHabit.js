@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowDown, Dots } from "../../svg";
 import HabitFullDisplay from "./HabitFullDisplay";
 
-export default function EachHabit({ habit, i, visitor }) {
+export default function EachHabit({ habit, i, visitor, posts }) {
   const [showEachHabit, setShowEachHabit] = useState("");
   console.log(showEachHabit);
   const habitToggle = (index) => {
@@ -10,6 +10,7 @@ export default function EachHabit({ habit, i, visitor }) {
       return prev == index ? "" : index;
     });
   };
+  console.log(habit);
   return (
     <div className="habit_profile_display">
       <div className="habit_half_display">
@@ -35,7 +36,7 @@ export default function EachHabit({ habit, i, visitor }) {
         </div>
       </div>
       {showEachHabit == i + 1 ? (
-        <HabitFullDisplay visitor={visitor} habit={habit} />
+        <HabitFullDisplay posts={posts} visitor={visitor} habit={habit} />
       ) : (
         ""
       )}

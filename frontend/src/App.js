@@ -11,6 +11,7 @@ import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { postReducer } from "./functions/reducer";
 import Habit from "./pages/habit";
+import FollowPage from "./pages/follow";
 
 //create reducer for useReducer
 
@@ -78,6 +79,7 @@ function App() {
             exact
           />
           <Route path="/habits" element={<Habit />} exact />
+          <Route path="/follow" element={<FollowPage />} exact />
           <Route
             path="/"
             element={

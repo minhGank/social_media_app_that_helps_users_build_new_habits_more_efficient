@@ -30,8 +30,7 @@ export default function Post({ post, user, profile }) {
   const getPostReacts = async () => {
     const res = await getReactsfronend(post._id, user.token);
     setReacts(res.reacts);
-    setTotal(res.reacts.length);
-    console.log("this", res.check);
+    setTotal(res.reacts?.length);
     if (res.check) {
       setCheck(true);
     } else {
@@ -42,20 +41,28 @@ export default function Post({ post, user, profile }) {
   const reactHandler = async (type) => {
     reactPost(post._id, type, user.token);
   };
-
+  console.log(post);
   return (
     <div className="post" style={{ width: `${profile && "100%"}` }}>
       <div className="post_header">
         <Link
-          to={`/profile/${post.user.username}`}
+          to={`/profile/${post.user?.username}`}
           className="post_header_left"
         >
-          <img src={post.user.picture} />
+          <img src={post.user?.picture} />
 
           <div className="header_col">
             <div className="post_profile_name">
-              {post.user.first_name} {post.user.last_name}
-              {/* delete those updated div below */}
+              {post.user?.first_name} {post.user?.last_name}
+              <div className="updated_p">
+                on <span>Day {post.day}</span> of{" "}
+                {post.user?.gender == "male"
+                  ? "his"
+                  : post.user?.gender == "female"
+                  ? "her"
+                  : "their"}{" "}
+                journey of building <span>{post.habit?.name}</span> habit
+              </div>
             </div>
 
             <div className="post_profile_privacy_data">
@@ -87,27 +94,27 @@ export default function Post({ post, user, profile }) {
       ) : post.type === null ? (
         <>
           <div className="post_text">{post.text}</div>
-          {post.images && post.images.length && (
+          {post.images && post.images?.length && (
             <div
               className={
-                post.images.length === 1
+                post.images?.length === 1
                   ? "grid_1"
-                  : post.images.length === 2
+                  : post.images?.length === 2
                   ? "grid_2"
-                  : post.images.length === 3
+                  : post.images?.length === 3
                   ? "grid_3"
-                  : post.images.length === 4
+                  : post.images?.length === 4
                   ? "grid_4"
-                  : post.images.length >= 5 && "grid_5"
+                  : post.images?.length >= 5 && "grid_5"
               }
             >
               {post.images.slice(0, 5).map((image, i) => (
                 <img src={image.url} key={i} className={`img-${i}`} />
               ))}
 
-              {post.images.length > 5 && (
+              {post.images?.length > 5 && (
                 <div className="more-pics-shadow">
-                  +{post.images.length - 5}
+                  +{post.images?.length - 5}
                 </div>
               )}
             </div>
@@ -116,7 +123,7 @@ export default function Post({ post, user, profile }) {
       ) : post.type === "profilePicture" ? (
         <div className="post_profile_wrap">
           <div className="post_updated_bg">
-            <img src={post.user.cover} />
+            <img src={post.user?.cover} />
           </div>
 
           <img src={post.images[0].url} className="post_updated_picture" />
@@ -134,10 +141,10 @@ export default function Post({ post, user, profile }) {
         </div>
         <div className="to_right">
           <div className="comments_counts">
-            {comments?.length == 0 ? "" : comments.length}{" "}
-            {comments.length == 0
+            {comments?.length == 0 ? "" : comments?.length}{" "}
+            {comments?.length == 0
               ? ""
-              : comments.length == 1
+              : comments?.length == 1
               ? "comment"
               : "comments"}
           </div>
@@ -201,7 +208,7 @@ export default function Post({ post, user, profile }) {
             })
             .slice(0, count)
             .map((comment, i) => <Comment comment={comment} key={i} />)}
-        {count < comments.length && (
+        {count < comments?.length && (
           <div
             className="view_comments"
             onClick={() => setCount((prev) => prev + 3)}
@@ -213,7 +220,7 @@ export default function Post({ post, user, profile }) {
       {showMenu && (
         <PostMenu
           userId={user.id}
-          postUserId={post.user._id}
+          postUserId={post.user?._id}
           imagesLength={post?.images?.length}
           setShowMenu={setShowMenu}
         />

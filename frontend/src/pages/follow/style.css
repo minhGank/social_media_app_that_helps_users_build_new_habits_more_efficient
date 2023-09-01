@@ -1,0 +1,33 @@
+.follow_page_main {
+    display: grid;
+    grid-template-columns: 0.6fr 1.2fr;
+    margin-left: 15%;
+    margin-top: 5%;
+    position: absolute;
+    width: 100%;
+}
+
+.follow_menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+padding: 5px;
+    width: 80%;
+ border: solid 2px;
+    background: white;
+    border-radius: 10px;
+}
+.follow_menu_item_top {
+    padding-left: 10px;
+font-size: 20px;
+font-weight: 700;
+}
+.follow_menu_item {
+   font-size: 17px;
+   font-weight: 600;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

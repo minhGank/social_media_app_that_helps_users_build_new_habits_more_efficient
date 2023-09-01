@@ -48,7 +48,7 @@ export default function Habit() {
     <div className="habit_page">
       <Header />
       <div className="habit_page_parts">
-        <LeftHome />
+        <LeftHome user={user} />
         <div className="habit_page_right">
           <div className="habit_page_top">
             <button className={trueIsAllHabit ? "blue_btn" : "gray_btn"}>

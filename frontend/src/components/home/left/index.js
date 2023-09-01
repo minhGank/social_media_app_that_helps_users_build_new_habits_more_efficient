@@ -15,10 +15,10 @@ export default function LeftHome({ user }) {
         <span>Habits</span>
       </Link>
 
-      <div className="left_link hover1">
+      <Link to="/follow" className="left_link hover1">
         <img src={`../../../self-icon/friends.png`} />
-        <span>Following</span>
-      </div>
+        <span>Follow</span>
+      </Link>
 
       <div className="left_link hover1">
         <img src={`../../../self-icon/direction.png`} />

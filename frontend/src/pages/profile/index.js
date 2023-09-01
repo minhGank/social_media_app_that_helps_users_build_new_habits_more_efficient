@@ -145,7 +145,11 @@ export default function Profile({ setVisable }) {
               </div>
             </div>
           </div>
-          <ProfileHabit habits={profile.habit} visitor={visitor} />
+          <ProfileHabit
+            posts={profile.posts}
+            habits={profile.habit}
+            visitor={visitor}
+          />
         </div>
       </div>
     </div>

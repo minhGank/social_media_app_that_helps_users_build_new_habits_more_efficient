@@ -19,6 +19,7 @@ export default function CreatePostPopup({ user, setVisable, day, habit }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const popup = useRef(null);
+
   useClickOutside(popup, () => {
     setVisable(false);
   });
