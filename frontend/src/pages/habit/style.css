@@ -1,0 +1,13 @@
+.habit_page_parts {
+    display: grid;
+    margin-top: 20px;
+}
+.habit_page_top {
+    display: flex;
+    margin-top: 3rem;
+    gap: 10px;
+}
+
+.habit_page_right {
+    margin-left: 17%;
+}

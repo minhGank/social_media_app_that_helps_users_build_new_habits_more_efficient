@@ -1,0 +1,36 @@
+.display_habit_div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px;
+    width: 80%;
+}
+
+.add_habit_icon {
+    width: 19px;
+}
+
+.display_habit_div .circle_icon {
+    background: var(--blue-color);
+    padding: 20px;
+    margin-left:   10px;
+    margin-right:10px;
+
+}
+
+.display_habit_intro {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.display_habit_bottom {
+    font-size: 16px;
+    width: 90%;
+}
+
+
+
+
+
+
+
