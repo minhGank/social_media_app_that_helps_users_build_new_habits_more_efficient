@@ -18,8 +18,13 @@ const userHabitSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["Completed", "Paused", "Unstarted"],
+    enum: ["Completed", "Paused", "Unstarted", "Removed", "Active"],
     default: "Unstarted",
+  },
+
+  dayStart: {
+    type: Date,
+    default: "Unstart",
   },
 
   1: {

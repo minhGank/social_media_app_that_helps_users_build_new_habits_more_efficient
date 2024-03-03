@@ -81,7 +81,7 @@ exports.register = async (req, res) => {
     let tempUsername = first_name + last_name;
     let newUsername = await validateUsername(tempUsername);
 
-    //save that data to database
+    //save that data to database/create new user
     const user = await new User({
       first_name,
       last_name,
@@ -92,6 +92,7 @@ exports.register = async (req, res) => {
       bMonth,
       bDay,
       gender,
+      habitCompleted: 0,
     }).save();
 
     //-----------END OF SAVING THE NEW USER INTO THE DATA BASE--------------------
@@ -226,7 +227,7 @@ exports.getProfile = async (req, res) => {
       .populate("following", "first_name last_name username picture")
       .populate(
         "habit",
-        "name description status 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30"
+        "name description postTheLastTime dayStart status 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30"
       );
 
     const friendship = {
@@ -448,6 +449,80 @@ exports.cancelRequest = async (req, res) => {
     } else {
       return res.status(500).json({ message: "There is no request from you" });
     }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.searchResult = async (req, res) => {
+  try {
+    const searchTerm = req.params.searchTerm;
+    const result = await User.find({ $text: { $search: searchTerm } }).select(
+      "first_name last_name username picture"
+    );
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.addToSearchHistory = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    const { searchUser } = req.body;
+    const search = {
+      user: searchUser,
+      createdAt: new Date(),
+    };
+    const check = user.search.find((x) => {
+      if (x.user) {
+        return x.user.toString() === searchUser;
+      }
+      return false; // If x.user is undefined, return false to indicate no match
+    });
+
+    if (check) {
+      await User.updateOne(
+        {
+          _id: req.user.id,
+          "search._id": check._id,
+        },
+        {
+          $set: { "search.$.createdAt": new Date() },
+        }
+      );
+    } else {
+      await User.findByIdAndUpdate(req.user.id, { $push: { search } });
+    }
+  } catch (error) {
+    console.error("Error in addToSearchHistory:", error);
+
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getSearchHistory = async (req, res) => {
+  try {
+    const searchHistory = await User.findById(req.user.id)
+      .select("search")
+      .populate("search.user", "first_name last_name picture username");
+    res.json(searchHistory.search);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.removeSearchHistory = async (req, res) => {
+  try {
+    const { deletedUser } = req.body;
+    await User.updateOne(
+      { _id: req.user.id },
+      {
+        $pull: {
+          search: { user: deletedUser },
+        },
+      }
+    );
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -5,6 +5,7 @@ const fileUpload = require("express-fileupload");
 const app = express();
 const { readdirSync, read } = require("fs");
 const dotenv = require("dotenv");
+
 dotenv.config();
 
 // cors will only allow the http request from the ip adrress/server that you allow

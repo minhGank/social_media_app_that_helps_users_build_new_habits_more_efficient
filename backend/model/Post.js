@@ -15,6 +15,10 @@ const postSchema = new mongoose.Schema(
     images: {
       type: Array,
     },
+    date: {
+      type: Date,
+      required: true,
+    },
     user: {
       type: ObjectId,
       ref: "User",

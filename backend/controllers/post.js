@@ -10,13 +10,25 @@ exports.createPost = async (req, res) => {
     console.log(habit);
     const habitId = new ObjectId(habit);
     const dayInString = day.toString();
-    const post = await new Post({ ...req.body, habit: habitId }).save();
+    const post = await new Post({
+      ...req.body,
+      habit: habitId,
+      date: new Date(),
+    }).save();
     const updateDay = {
       [dayInString]: post._id,
     };
+    if (day == 1) {
+      await UserHabit.findByIdAndUpdate(habit, {
+        dayStart: new Date(),
+        status: "Active",
+      });
+    }
     await UserHabit.findByIdAndUpdate(habit, {
       $set: updateDay,
     });
+    const userHabit = await UserHabit.findById(habit);
+
     await post.populate(
       "user",
       "first_name last_name picture username habit day"

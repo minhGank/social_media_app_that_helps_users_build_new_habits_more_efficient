@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const UserHabit = require("./UserHabit");
 const { ObjectId } = mongoose.Schema;
 const userSchema = mongoose.Schema(
   {
@@ -72,6 +73,11 @@ const userSchema = mongoose.Schema(
     friends: [{ type: ObjectId, ref: "User" }],
     followers: [{ type: ObjectId, ref: "User" }],
     following: [{ type: ObjectId, ref: "User" }],
+    habitCompleted: {
+      type: ObjectId,
+      ref: UserHabit,
+      default: null,
+    },
     privacy: {
       type: String,
       enum: ["public", "private"],
@@ -86,6 +92,10 @@ const userSchema = mongoose.Schema(
         user: {
           type: ObjectId,
           ref: "User",
+        },
+        createdAt: {
+          type: Date,
+          required: true,
         },
       },
     ],
