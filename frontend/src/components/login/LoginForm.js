@@ -59,14 +59,8 @@ export default function LoginForm({ setVisible }) {
     }
   };
   return (
-    <div className="login_wrap">
-      <div className="login_1">
-        {/*------ CHANGE THE LOGO HERE ---------*/}
-        <img src="../../icons/facebook.svg"></img>
-        <span>Build good habits together</span>
-      </div>
-
-      <div className="login_2">
+    <div className="login_self_wrap">
+      <div className="login_self_2">
         <div className="login_2_wrap">
           {/* -----create a form------- */}
           <Formik
@@ -115,20 +109,20 @@ export default function LoginForm({ setVisible }) {
           <Link to="/forgot" className="forgot_password">
             Forgotten Password?
           </Link>
+
           <div className="sign_splitter"></div>
-          <button
-            onClick={() => setVisible(true)}
-            className="blue_btn open_signup"
-          >
+          <span className="orSignUpSpan">Or</span>
+          <button onClick={() => setVisible(true)} className=" open_signup">
             Create Account
           </button>
         </div>
+      </div>
+      {/* ----------------------- */}
 
-        {/* create page for celebrity */}
-        <Link to="/" className="sign_extra">
-          <b>Create a Page </b>
-          for a celebirity, brand or business.
-        </Link>
+      <div className="login_self_1">
+        {/*------ CHANGE THE LOGO HERE ---------*/}
+        <img src="../../self-icon/Astaire2.png"></img>
+        {/* <span>Build good habits together</span> */}
       </div>
     </div>
   );

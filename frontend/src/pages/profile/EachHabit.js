@@ -4,13 +4,11 @@ import HabitFullDisplay from "./HabitFullDisplay";
 
 export default function EachHabit({ habit, i, visitor, posts }) {
   const [showEachHabit, setShowEachHabit] = useState("");
-  console.log(showEachHabit);
   const habitToggle = (index) => {
     setShowEachHabit((prev) => {
       return prev == index ? "" : index;
     });
   };
-  console.log(habit);
   return (
     <div className="habit_profile_display">
       <div className="habit_half_display">

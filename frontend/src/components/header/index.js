@@ -39,35 +39,38 @@ export default function Header({ page }) {
 
   useClickOutside(allmenu, () => setShowAllMenu(false));
 
-  useClickOutside(usermenu, () => setShowAllMenu(false));
+  useClickOutside(usermenu, () => setShowUserMenu(false));
 
   return (
     <header>
       {/* //------ start header left------- */}
       <div className="header-left">
-        <Link to="/" className="header-logo">
+        {/* <Link to="/" className="header-logo">
           <div className="circle">
-            <Logo />
+            <img
+              src="../../../self-icon/target.png"
+              style={{ width: "40px", marginLeft: "2px" }}
+            />
           </div>
-        </Link>
+        </Link> */}
         <div
-          className="search search1"
+          className={showSearchMenu ? "search_when_open" : "search search1"}
           onClick={() => {
             setShowSearchMenu(true);
           }}
         >
           <Search color={color} />
-          <input
-            type="text"
-            placeholder="Search Donotrix"
-            className="hide_input"
-          />
+          <input type="text" placeholder="Search" className="hide_input" />
         </div>
       </div>
       {/* ---------end header left-------- */}
 
       {showSearchMenu && (
-        <SearchMenu color={color} setShowSearchMenu={setShowSearchMenu} />
+        <SearchMenu
+          color={color}
+          setShowSearchMenu={setShowSearchMenu}
+          token={user.token}
+        />
       )}
 
       {/* ---------Start header middle-------- */}
@@ -77,16 +80,15 @@ export default function Header({ page }) {
           to="/"
           className={`middle_icon ${page === "home" ? "active" : ""}`}
         >
-          For you
+          Home
           {/* {page === "home" ? <HomeActive /> : <Home color={color} />}{" "} */}
         </Link>
-        <Link
+        {/* <Link
           to="/"
           className={`middle_icon ${page === "home" ? "" : "active"}`}
         >
           Following
-          {/* {page === "home" ? <HomeActive /> : <Home color={color} />}{" "} */}
-        </Link>
+        </Link> */}
       </div>
 
       {/* ---------end header middle-------- */}
@@ -103,14 +105,17 @@ export default function Header({ page }) {
           <span>{user?.first_name}</span>
         </Link>
 
-        <div className="circle_icon hover1">
+        <div className="circle_icon icon_dark hover1">
           <img
             src="../../../self-icon/chat-1.png"
-            style={{ width: "19px", transform: "translateX(0.5px)" }}
+            style={{
+              width: "19px",
+              transform: "translateX(0.5px)",
+            }}
           />
         </div>
 
-        <div className="circle_icon hover1">
+        <div className="circle_icon icon_dark hover1">
           <img
             src="../../../self-icon/lightbulb.png"
             style={{ width: "22px" }}
@@ -123,15 +128,17 @@ export default function Header({ page }) {
             showUserMenu ? "active_header" : ""
           }`}
           ref={usermenu}
-          onClick={() => {
-            setShowUserMenu((prev) => !prev);
-          }}
         >
-          <div style={{ transform: "translateY(2px)" }}>
+          <div
+            onClick={() => {
+              setShowUserMenu((prev) => !prev);
+            }}
+            style={{ transform: "translateY(2px)" }}
+          >
             <ArrowDown />
           </div>
 
-          {showUserMenu && <UserMenu user={user} />}
+          {showUserMenu && <UserMenu usermenu={usermenu} user={user} />}
         </div>
       </div>
 

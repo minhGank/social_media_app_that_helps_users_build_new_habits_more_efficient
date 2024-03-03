@@ -20,7 +20,9 @@
     padding: 14px 15px 17px 15px;
     border-bottom: 1px solid var(--bg-third);
 }
-
+.box_header span {
+    color: var(--color-primary);
+}
 .postBox .small_circle {
     position: absolute;
     right: 10px;
@@ -42,6 +44,7 @@
 
 .box_col {
     transform: translateY(-7px);
+    color: var(--color-primary);
 }
 
 .box_profile_name {
@@ -55,7 +58,7 @@
     align-items: center;
     width: 81px;
     gap:4px;
-    font-style: 12px;
+    font-size: 12px;
     padding: 3px 8px 4px 8px;
     border-radius: 7px;
     background-color: var(--bg-third);
@@ -127,9 +130,14 @@
 
 }
 
+.post_header_right_div{
+    display: flex;
+    
+}
 .addtoyourpost {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
     margin: 0 10px ;
     padding: 10px;
@@ -141,12 +149,14 @@
     width: 50%;
     font-weight: 600;
     font-size: 14px;
+    color: var(--color-primary);
 }
 
 .post_header_right {
     width: 35px;
     height: 35px;
     display: grid;
+    margin-left: 15px;
     place-items: center;
     cursor: pointer;
     border-radius: 50%;
@@ -163,6 +173,8 @@
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 
@@ -200,6 +212,7 @@
     padding: 10px;
     border: 1px solid var(--bg-third);
     border-radius: 10px;
+    color: var(--color-primary);
 }
 .add_pics_inside1 {
     position: relative;

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    
     position: fixed;
     left: 6px;
     max-height: 100vh;
@@ -24,19 +23,51 @@
     font-weight: 600;
     font-size: 14px;
     margin-bottom: 2px;
+    justify-content: center;
+    width: 100%;
 }
 
 .left_link_profile {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius:50% ;
     margin-right: 11px;
     vertical-align: -0.25rem; 
 }
 
+.left_link_icon{
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 2px;
+    justify-content: center;
+   
+}
+
+.left_link_icon img {
+    width: 35px;
+    height: 35px;
+    /* border-radius:50% ; */
+    margin-left: 10px;
+    vertical-align: -0.25rem;
+    margin-top: 2px;
+}
+
+.left_link_icon block {
+    margin-bottom: 4px;
+    margin-left:10px ;
+    font-weight: 450;
+    font-size: 18px;
+    font-family: 'Segoe UI' !important;
+}
+
 .left_link img {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     /* border-radius:50% ; */
     margin-right: 11px;
     vertical-align: -0.25rem;
@@ -46,7 +77,8 @@
     margin-bottom: 4px;
     margin-left:1px ;
     font-weight: 450;
-    font-size: 15px;
+    font-size: 18px;
+    font-family: 'Segoe UI' !important;
 }
 
 .col {

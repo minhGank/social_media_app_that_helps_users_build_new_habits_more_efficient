@@ -18,6 +18,7 @@ a {
   --bg-secondary: #f0f2f5;
   --bg-third: #e4e6eb;
   --bg-forth: #f0f2f5;
+  --bg-fifth: #888888;
   --color-primary: #050505;
   --color-secondary: #65676b;
   --divider: #ced0d4;
@@ -26,8 +27,11 @@ a {
   --dark-bg-third: #3a3b3c;
   --dark-color-primary: #242526;
   --dark-color-secondary: #b0b3b8;
-  --blue-color: #1876f2;
+  --blue-color: #ff3e13; 
+  /* primary */
   --green-color: #42b72a;
+  /* accent */
+  /* secondary color : #ff3e13 */
   --light-blue-color: #e7f3ff;
   --border-color: #ccced2;
   --shadow-1: rgba(0, 0, 0, 0.2);
@@ -37,6 +41,99 @@ a {
 }
 
 
+/* .dark {
+  --bg-primary: #242526;
+  --bg-secondary: #18191a;
+  --bg-third: #3a3b3c;
+  --bg-forth: #3a3b3c;
+  --color-primary: #e4e6eb;
+  --color-secondary: #b0b3b8;
+}
+
+.dark .blur {
+  background: rgb(1, 1, 1,0.53);
+}
+
+.dark .hover1:hover, .dark .hover2:hover {
+  background: var(--bg-fifth);
+}
+
+.dark .header-right .icon_dark img {
+  filter: brightness(0) invert(1) !important}
+
+
+  .dark .header-right svg {
+    fill: white;
+  }
+
+  .dark .header-left img {
+    filter:brightness(0) invert(1) !important;
+  }
+
+.dark .left_link_icon img {
+  filter:brightness(0) invert(1) !important;
+
+}
+
+.dark .active_header svg {
+  fill: var(--blue-color) !important;
+}
+
+.dark .active_header {
+  background: var(--light-blue-color) !important;
+}
+
+.dark .active_header .circle_icon:hover {
+  background: #888888;
+}
+
+.dark input[type= "text"] {
+  color: #e4e6eb;
+}
+
+.dark .small_circle i, .dark .circle i {
+  filter: invert(100%) !important;
+}
+
+.dark .post_action img {
+  filter: invert(90%);
+}
+
+.dark .post_menu i, .dark .post_menu img {
+  filter: invert(100%);
+}
+
+.dark .emoji_icon {
+  filter: invert(95%);
+}
+
+.dark .comment_circle_icon:hover {
+  background: #555;
+}
+
+.dark .box_privacy i, .dark .box_privacy img {
+  filter: invert(90%);
+}
+
+.dark .emoji_icon_large:hover {
+  filter: invert(0);
+}
+.dark .add_pics_wrap i {
+ filter: invert(100%);
+}
+
+.dark .active_link:hover {
+  background: var(--light-blue-color);
+}
+
+.dark .profile_circle i, .dark .edit-profile i {
+  filter: invert(90%);
+}
+
+.dark .habit_profile_display_right .circle_icon svg {
+  filter: invert(90%);
+
+} */
 /* buttons */
 .blue_btn {
   border: none;
@@ -74,13 +171,13 @@ a {
 .gray_btn {
   border: none;
   outline: none;
-  background: var(--bg-secondary);
+  background: var(--color-secondary);
   padding: 8.5px 12px;
   border-radius: 7px;
   font-family: inherit;
   font-weight: 600;
   font-size: 14px;
-  color: #111;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;

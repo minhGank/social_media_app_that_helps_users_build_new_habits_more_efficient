@@ -1,6 +1,10 @@
 .profile {
     color: var(--color-primary);
+    background: var(--bg-primary);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
 }
+
 
 .profile_top {
    
@@ -502,6 +506,10 @@ font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
+   margin-top: 75px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) ;
 }
 
 .profile_header_left {
@@ -553,6 +561,39 @@ font-size: 14px;
     margin-top: 30px;
 }
 
+
+.green_day  {
+    background-color: #32CD32  !important;
+    color: white ;
+}
+
+.green_day:hover  {
+    background-color: #2aa82a !important;
+}
+.forgot_day {
+    background-color: black !important;
+    color: white;
+}
+
+.forgot_day:hover {
+    background-color: rgb(81, 79, 79) !important ;
+}
+
+.day_future {
+    background-color: #cccccc !important;
+}
+
+.current_day{
+    border: solid 2px var(--blue-color) !important;
+}
+
+.habit_display_day {
+    color: white;
+    background-color: gray;
+   
+    margin-top: 2px;
+
+}
 
 @media (max-width:900px) {
     .profile_top {

@@ -1,10 +1,23 @@
+.follow_page_div {
+    background: var(--bg-primary);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.follow_page_parts {
+    width: 100%;
+    background: var(--bg-primary);
+}
+
 .follow_page_main {
+    display: flex;
+    margin-left: 18%;
+    margin-top: 5%;
+    width: 100%;
+    background: var(--bg-primary);
     display: grid;
     grid-template-columns: 0.6fr 1.2fr;
-    margin-left: 15%;
-    margin-top: 5%;
-    position: absolute;
-    width: 100%;
 }
 
 .follow_menu{
@@ -14,8 +27,9 @@
 padding: 5px;
     width: 80%;
  border: solid 2px;
-    background: white;
+    background: var(--bg-third);
     border-radius: 10px;
+    color: var(--color-primary);
 }
 .follow_menu_item_top {
     padding-left: 10px;
@@ -30,4 +44,40 @@ font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.people_you_may_know_each_user {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-between;
+}
+.people_you_may_know_user_intro {
+    display: flex;
+    align-items: center;
+}
+.people_you_may_know_user_intro img {
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.people_you_may_know_user_intro_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.people_you_may_know_user_intro_info span:first-of-type {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.people_you_may_know_user_intro_info span:last-of-type {
+color: var(--color-secondary);
+font-size: 14px;
+
+}
+
+.people_you_may_know_div {
+    background: var(--bg-primary);
 }

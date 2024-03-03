@@ -9,15 +9,17 @@ import DisplayHabit from "../../components/habit/displayHabit";
 export default function Habit() {
   const { user } = useSelector((state) => ({ ...state }));
   const [trueIsAllHabit, FalseIsYourHabits] = useState(true);
-
+  const [showAddCustom, setShowAddCustom] = useState(false);
   const [{ loading, habits, error }, dispatch] = useReducer(habitReducer, {
     loading: false,
     habits: [],
     error: "",
   });
+
   useEffect(() => {
     getAllHabit();
   }, []);
+
   const getAllHabit = async () => {
     try {
       dispatch({
@@ -54,8 +56,13 @@ export default function Habit() {
             <button className={trueIsAllHabit ? "blue_btn" : "gray_btn"}>
               All Habits
             </button>
-            <button className={trueIsAllHabit ? "gray_btn" : "blue_btn"}>
-              Your Habits
+            <button
+              onClick={() => {
+                setShowAddCustom(true);
+              }}
+              className={trueIsAllHabit ? "gray_btn" : "blue_btn"}
+            >
+              Add Custom Habit
             </button>
           </div>
           {trueIsAllHabit && (
@@ -68,6 +75,44 @@ export default function Habit() {
           )}
         </div>
       </div>
+      {showAddCustom && (
+        <div className="div_for_customize_habit">
+          <div className="div_for_customize_habit_tab">
+            <div className="div_for_customize_habit_headline">
+              <h3>Add Custome Habit</h3>
+            </div>
+            <div
+              className="small_circle exitHabitTab"
+              onClick={() => {
+                setShowAddCustom(false);
+              }}
+            >
+              <i className="exit_icon"></i>
+            </div>
+            <div className="div_for_customize_habit_inputs">
+              <form method="POST">
+                <label for="nameOfHabit">Name:</label>
+                <br></br>
+                <input
+                  type="text"
+                  name="nameOfHabit"
+                  placeholder="Habit name..."
+                />
+                <br></br>
+                <label for="descriptionOfHabit">Description:</label>
+                <br></br>
+                <textarea
+                  type="text"
+                  name="descriptionOfHabit"
+                  placeholder="Description..."
+                />
+                <br></br>
+                <button type="submit">Complete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

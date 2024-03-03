@@ -12,7 +12,7 @@ export default function PostMenu({
   useOnclickOutside(menu, () => setShowMenu(false));
   return (
     <ul className="post_menu" ref={menu}>
-      {test && <MenuItem icon="pin_icon" title="Pin Post" />}
+      {/* {test && <MenuItem icon="pin_icon" title="Pin Post" />} */}
       <MenuItem
         icon="save_icon"
         title="Save Post"
@@ -33,9 +33,9 @@ export default function PostMenu({
 
       {imagesLength && <MenuItem icon="download_icon" title="Download" />}
 
-      {imagesLength && (
+      {/* {imagesLength && (
         <MenuItem icon="fullscreen_icon" title="Enter Fullscreen" />
-      )}
+      )} */}
 
       {test && <MenuItem img="../../../icons/lock.png" title="Edit audience" />}
 
@@ -45,18 +45,18 @@ export default function PostMenu({
           title="Turn off notification for this post."
         />
       )}
-      {test && <MenuItem icon="delete_icon" title="Turn off translation." />}
-      {test && <MenuItem icon="date_icon" title="Edit date." />}
-      {test && (
+      {/* {test && <MenuItem icon="delete_icon" title="Turn off translation." />} */}
+      {/* {test && <MenuItem icon="date_icon" title="Edit date." />} */}
+      {/* {test && (
         <MenuItem icon="refresh_icon" title="Refresh share attachment." />
-      )}
+      )} */}
       {test && <div className="line"></div>}
       {test && <MenuItem icon="archive_icon" title="Move to archive." />}
       {test && (
         <MenuItem
           icon="trash_icon"
-          title="Move to trash."
-          subtitle="Items in your trash will be deleted after 30 days."
+          title="Delete post"
+          subtitle="Delete this post from your profile."
         />
       )}
       {!test && <div className="line"></div>}

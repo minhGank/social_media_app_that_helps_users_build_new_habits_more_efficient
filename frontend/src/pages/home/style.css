@@ -1,7 +1,8 @@
 .home {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 1fr 2fr 1fr;
+
 }
 
 .home_middle {

@@ -12,7 +12,7 @@ import axios from "axios";
 import { postReducer } from "./functions/reducer";
 import Habit from "./pages/habit";
 import FollowPage from "./pages/follow";
-
+import { getUserHabit } from "./functions/habit";
 //create reducer for useReducer
 
 function App() {
@@ -64,7 +64,7 @@ function App() {
 
   //-------START RETURN------------
   return (
-    <div>
+    <div className="dark">
       {visible && <CreatePostPopup setVisable={setVisable} user={user} />}
       <Routes>
         <Route element={<LoggedInRoutes />}>
@@ -87,7 +87,6 @@ function App() {
             }
             exact
           />
-          {/* <Route path="/activate/:token" element={<Activate />} exact /> */}
         </Route>
 
         <Route element={<NotLoggedInRoutes />}>

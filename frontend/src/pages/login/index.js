@@ -11,10 +11,10 @@ export default function Login() {
   const [visible, setVisible] = useState(false);
   return (
     <div className="login">
-      <div className="login_wrapper">
+      <div className="login_self_wrapper">
         <LoginForm setVisible={setVisible} />
         {visible && <RegisterForm setVisible={setVisible} />}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

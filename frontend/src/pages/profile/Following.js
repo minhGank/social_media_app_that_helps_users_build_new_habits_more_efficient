@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Following({ following }) {
+export default function Following({ following, nameOfTheFunction }) {
   const [showFollowing, setShowFollowing] = useState(false);
   return (
     <div
@@ -14,22 +14,22 @@ export default function Following({ following }) {
           setShowFollowing(true);
         }}
       >
-        Following
+        {nameOfTheFunction}
       </span>
-      {following && (
-        <div
-          className="profile_card_count"
-          onClick={() => {
-            setShowFollowing(true);
-          }}
-        >
-          {following.length === 0
-            ? "0"
-            : following.length === 1
-            ? "1"
-            : `${following.length}`}
-        </div>
-      )}
+
+      <div
+        className="profile_card_count"
+        onClick={() => {
+          setShowFollowing(true);
+        }}
+      >
+        {following?.length == null || following.length == 0
+          ? "0"
+          : following.length === 1
+          ? "1"
+          : `${following.length}`}
+      </div>
+
       {showFollowing && following.length !== 0 && (
         <div className="show-followers blur">
           <div className="box_header">

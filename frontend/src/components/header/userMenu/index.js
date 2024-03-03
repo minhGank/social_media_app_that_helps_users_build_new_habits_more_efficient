@@ -6,7 +6,7 @@ import DisplayAccessibility from "./DisplayAccessibility";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 
-export default function UserMenu({ user }) {
+export default function UserMenu({ user, usermenu }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [visible, setVisible] = useState(0);
@@ -20,7 +20,7 @@ export default function UserMenu({ user }) {
   };
 
   return (
-    <div className="mmenu">
+    <div className="mmenu" ref={usermenu}>
       {visible === 0 && (
         <div>
           {" "}

@@ -46,6 +46,7 @@ export default function Profile({ setVisable }) {
     profile: {},
     error: "",
   });
+  console.log("this is profile data", profile);
 
   const getProfile = async () => {
     try {
@@ -109,10 +110,9 @@ export default function Profile({ setVisable }) {
     <div className="profile">
       {/* ----------first div is the div for Header ---------*/}
       <Header page="profile" />
+      <LeftHome user={user} />
       <div className="profile-parts">
-        <div className="profile_header_left">
-          <LeftHome user={user} />
-        </div>
+        <div className="profile_header_left"></div>
         <div className="profile_top">
           <div className="profile_container">
             <ProfilePictureInfos
@@ -139,10 +139,14 @@ export default function Profile({ setVisable }) {
 
             <div className="follower-following-div">
               <Followers followers={profile.followers} />
-              <Following following={profile.following} />
-              <div className="habit-complete-intro-div ffd-item">
-                Habit Completed
-              </div>
+              <Following
+                following={profile.following}
+                nameOfTheFunction={"Following"}
+              />
+              <Following
+                following={profile.habitCompleted}
+                nameOfTheFunction={"Habit Complete"}
+              />
             </div>
           </div>
           <ProfileHabit

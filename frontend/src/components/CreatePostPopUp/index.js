@@ -168,6 +168,8 @@ export default function CreatePostPopup({ user, setVisable, day, habit }) {
             setImages={setImages}
             setShowPrev={setShowPrev}
             setError={setError}
+            day={day}
+            habit={habit}
           />
         )}
         <AddToYourPost setShowPrev={setShowPrev} />

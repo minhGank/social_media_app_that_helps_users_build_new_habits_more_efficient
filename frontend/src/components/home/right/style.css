@@ -1,10 +1,62 @@
 .right_home {
   position: fixed;
-  left: 80.7vw;
+  left: 77.7vw;
   top: 4rem;
-  width: 17vw;
+  width: 20vw;
 }
-.splitter1 {
+
+.EachHabitInOverview_div_intro_name p {
+font-size: 17px;
+font-weight: 500;
+}
+
+.EachHabitInOverview_div_intro_infomation{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  margin-left: 1px;
+width: 90%;
+}
+
+.EachHabitInOverview_div_intro_infomation span{
+
+  font-size: 14px;
+  font-style: italic;
+}
+
+.habit_full_display_in_tab_overview{
+display: grid;
+grid-template-columns: repeat(5,1fr);
+width: 80%;
+
+}
+
+.habitTabSeperateLine{
+  margin-top: 8px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.habitTabSeperateLine hr {
+box-shadow: 1px 1px 1px -0.5px var(--shadow-2);
+}
+
+.habitTabSeperateLine hr {
+  width: 95%;
+}
+
+.habit_display_day_in_home {
+  color: white;
+  background-color: gray;
+ 
+  margin-top: 2px;
+  
+}
+/* .splitter1 {
   height: 1.3px;
   background: var(--divider);
   width: 17vw;
@@ -68,4 +120,4 @@
 }
 .contact span {
   transform: translateY(-5px);
-}
+} */

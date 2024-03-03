@@ -41,7 +41,6 @@ export default function Post({ post, user, profile }) {
   const reactHandler = async (type) => {
     reactPost(post._id, type, user.token);
   };
-  console.log(post);
   return (
     <div className="post" style={{ width: `${profile && "100%"}` }}>
       <div className="post_header">
@@ -55,13 +54,8 @@ export default function Post({ post, user, profile }) {
             <div className="post_profile_name">
               {post.user?.first_name} {post.user?.last_name}
               <div className="updated_p">
-                on <span>Day {post.day}</span> of{" "}
-                {post.user?.gender == "male"
-                  ? "his"
-                  : post.user?.gender == "female"
-                  ? "her"
-                  : "their"}{" "}
-                journey of building <span>{post.habit?.name}</span> habit
+                on <span>Day {post.day}</span> of building{" "}
+                <span>{post.habit?.name}</span> <span>Habit</span>
               </div>
             </div>
 
@@ -69,7 +63,7 @@ export default function Post({ post, user, profile }) {
               <Moment fromNow interval={30}>
                 {post.createdAt}
               </Moment>
-              <Public color="#828387 " />
+              {/* <Public color="#828387 " /> */}
             </div>
           </div>
         </Link>

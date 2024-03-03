@@ -10,27 +10,27 @@ export default function LeftHome({ user }) {
   const [visible, setVisible] = useState(false);
   return (
     <div className="left_home scrollbar">
-      <Link to="/habits" className="left_link hover1">
+      <Link to="/habits" className="left_link  hover2">
         <img src={`../../../self-icon/to-do-list.png`} />
         <span>Habits</span>
       </Link>
 
-      <Link to="/follow" className="left_link hover1">
+      <div className="left_link_icon hover2">
+        <img src={`../../../self-icon/trophy2.png`} />
+        <block>Ranking</block>
+      </div>
+
+      <Link to="/follow" className="left_link  hover2">
         <img src={`../../../self-icon/friends.png`} />
         <span>Follow</span>
       </Link>
 
-      <div className="left_link hover1">
-        <img src={`../../../self-icon/direction.png`} />
-        <span>Explore</span>
-      </div>
-
-      <div className="left_link hover1">
+      {/* <div className="left_link left_link_icon hover2">
         <img src={`../../../self-icon/chat.png`} />
         <span>Inbox</span>
-      </div>
+      </div> */}
 
-      <Link to="/profile" className="left_link hover1">
+      <Link to="/profile" className="left_link hover2">
         <img src={user?.picture} alt="" className="left_link_profile" />
         <span>Profile</span>
       </Link>

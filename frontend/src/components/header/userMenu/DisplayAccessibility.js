@@ -19,7 +19,7 @@ export default function DisplayAccessibility({ setVisible }) {
           </span>
         </div>
       </div>
-      <label htmlFor="darkOn" className="hover1">
+      <label htmlFor="darkOn" className="hover1" checked>
         <span>On</span>
         <input type="radio" name="dark" id="darkOn" />
       </label>
@@ -28,7 +28,7 @@ export default function DisplayAccessibility({ setVisible }) {
         <input type="radio" name="dark" id="darkOff" />
       </label>
 
-      <div className="mmenu_main">
+      {/* <div className="mmenu_main">
         <div className="small_circle" style={{ width: "50px" }}>
           <i className="compact_icon"></i>
         </div>
@@ -55,7 +55,7 @@ export default function DisplayAccessibility({ setVisible }) {
         <div className="rArrow">
           <i className="right_icon"></i>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -9,6 +9,8 @@ export default function Imagepreview({
   setImages,
   setShowPrev,
   setError,
+  habit,
+  day,
 }) {
   const imageInputRef = useRef(null);
 
@@ -44,7 +46,14 @@ export default function Imagepreview({
   return (
     <div className="overflow_a scrollbar">
       {/* text area + emoji picker */}
-      <EmojiPickerBackground text={text} setText={setText} user={user} type2 />
+      <EmojiPickerBackground
+        text={text}
+        setText={setText}
+        user={user}
+        day={day}
+        habit={habit}
+        type2
+      />
       {/* end of text area + emoji picker */}
 
       {/* input for adding image */}

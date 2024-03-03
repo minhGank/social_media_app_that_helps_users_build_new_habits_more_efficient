@@ -67,7 +67,7 @@ export default function EmojiPickerBackground({
           ref={textRef}
           maxLength="250"
           value={text}
-          placeholder={`Share your progress on day ${day} of your ${habit?.name} journey! Let's motivate others, ${user?.first_name}!`}
+          placeholder={`Share day ${day} of your ${habit?.name} Journey! `}
           className={`post_input ${type2 ? "input2" : ""}`}
           onChange={(e) => setText(e.target.value)}
           style={{
@@ -89,14 +89,14 @@ export default function EmojiPickerBackground({
             <Picker emojiStyle="twitter" onEmojiClick={handleEmoji} />
           </div>
         )}
-        {!type2 && (
+        {/* {!type2 && (
           <img
             src="../../../icons/colorful.png"
             onClick={() => {
               setShowBgs((prev) => !prev);
             }}
           />
-        )}
+        )} */}
         {!type2 && showBgs && (
           <div className="post_backgrounds">
             <div
